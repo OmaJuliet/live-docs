@@ -1,12 +1,5 @@
-import { Permit } from 'permitio';
 import { NextResponse } from 'next/server';
-
-const PERMIT_API_KEY = process.env.PERMIT_API_KEY as string;
-
-const permit = new Permit({
-  token: PERMIT_API_KEY,
-  pdp: 'https://cloudpdp.api.permit.io',
-});
+import permit from "../../../../lib/permit"
 
 export async function DELETE(request: Request) {
   const { userId, role } = await request.json();
